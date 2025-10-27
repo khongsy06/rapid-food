@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>美食地图 - Rapid Food</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: "Microsoft YaHei", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+    }
+
+    /* ✅ Header 导航 */
+     header {
+      background-color: #a7d8f0;
+      padding: 15px 20px;
+      text-align: center;
+    }
+
+    header img {
+      max-height: 70px;
+      display: block;
+      margin: 0 auto px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;   /* 去掉下划线 */
+      color: #ffffff;          /* 白色字体 */
+      font-size: 18px;
+      font-weight: bold;       /* 加粗 */
+      transition: opacity 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 0.8;            /* hover 时半透明 */
+    }
+
+    .station-container {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    /* ✅ 站点标题 */
+    .station-header {
+      text-align: center;
+      background:  #3d4ca4;
+      color: #ffffff;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15);
+    }
+
+    .station-header h2 {
+      font-size: 28px;
+      letter-spacing: 2px;
+      margin: 0;
+    }
+
+    /* ✅ 站点卡片 */
+    .station-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .station-card {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .station-card:hover {
+      transform: scale(1.03);
+    }
+
+    .station-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .station-card h3 {
+      padding: 10px;
+      font-size: 20px;
+      margin: 0;
+      background-color: #c3d8ff;
+      color: #333;
+    }
+
+    .station-card .btn {
+      display: inline-block;
+      margin: 12px 0 15px 0;
+      padding: 8px 16px;
+      background-color: #8cc9e8;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .station-card .btn:hover {
+      background-color: #f7a0a0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #a7d8f0; /* 保留原背景 */
+      color: #ffffff;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <!-- ✅ 导航区 -->
+  <header>
+  <img src="images/logo.png" alt="Rapid Food Logo">
+  <nav>
+    <ul>
+      <li><a href="index.html">首页🏠</a></li>
+      <li><a href="map.html">美食地图🗺️</a></li>
+      <li><a href="aboutus.html">关于我们👋</a></li>
+      <li><a href="en/index.html">English✨</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <!-- ✅ 站点区 -->
+  <div class="station-container">
+    <div class="station-header">
+      <h2>🚇 MRT 站点选择</h2>
+    </div>
+
+    <div class="station-grid">
+      <div class="station-card">
+        <img src="images/maluri.png" alt="Maluri">
+        <h3>MALURI</h3>
+        <a href="station-maluri.html" class="btn">寻找更多美食😋</a>
+     </div>
+
+      <div class="station-card">
+        <img src="images/taman-pertama.png" alt="Taman Pertama">
+        <h3>TAMAN PERTAMA</h3>
+        <a href="station-taman-petama.html" class="btn">寻找更多美食😋</a>
+      </div>
+
+      <div class="station-card">
+        <img src="images/taman-mutiara.png" alt="Taman Mutiara">
+        <h3>TAMAN MUTIARA</h3>
+        <a href="station-taman-mutiara.html" class="btn">寻找更多美食😋</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Rapid Food. MRT 美食推荐平台.
+  </footer>
+</body>
+</html>

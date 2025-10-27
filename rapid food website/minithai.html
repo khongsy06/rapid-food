@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Thai - Rapid Food</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+     font-family: "Microsoft YaHei", sans-serif;
+     margin: 0;
+     padding: 0;
+     background-color: #f5f9ff;
+    }
+
+/* ✅ Header 样式 */
+    header {
+      background-color: #a7d8f0;
+      padding: 15px 20px;
+      text-align: center;
+    }
+
+    header img {
+      max-height: 70px;
+      display: block;
+      margin: 0 auto px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;   /* 去掉下划线 */
+      color: #ffffff;          /* 白色字体 */
+      font-size: 18px;
+      font-weight: bold;       /* 加粗 */
+      transition: opacity 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 0.8;            /* hover 时半透明 */
+    }
+
+    .restaurant-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 30px 0 10px;
+    }
+
+    .restaurant-logo {
+      width: 220px;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .restaurant-header h1 {
+      font-size: 32px;
+      color: #333;
+      text-align: center;
+    }
+
+    .info-section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+
+    .info-section h3 {
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-size: 22px;
+      border-left: 5px solid #a7d8f0; /* 浅蓝竖线 */
+      padding: 5px 0 5px 10px;
+      color: #333;
+      text-align: left; /* ✅ 改成靠左 */
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+      font-size: 18px;
+    }
+
+    .address a {
+      color: #1e90ff;
+      text-decoration: none;
+    }
+
+    /* Stepper 样式 */
+    .stepper {
+      margin-top: 20px;
+      padding-left: 20px;
+      border-left: 3px solid #87CEFA;
+    }
+
+    .step {
+      margin-bottom: 30px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .step::before {
+      content: "";
+      width: 15px;
+      height: 15px;
+      background: #87CEFA;
+      border-radius: 50%;
+      position: absolute;
+      left: -11px;
+      top: 5px;
+    }
+
+       .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 30px;
+      color: rgb(254, 193, 193);
+      background: rgba(0, 0, 0, 0.5);
+      width: 30px; /* 🔹 圆圈的宽度 */
+      height: 30px; /* 🔹 圆圈的高度 */
+      border-radius: 50%;
+      padding: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .play-button:hover {
+      background: rgba(159, 223, 255, 0.7);
+    }
+
+    .hours {
+      font-size: 18px;
+      color: #444;
+      margin-top: 10px;
+    }
+
+  </style>
+</head>
+<body>
+ <header>
+  <img src="images/logo.png" alt="Rapid Food Logo">
+  <nav>
+    <ul>
+      <li><a href="index.html">首页🏠</a></li>
+      <li><a href="map.html">美食地图🗺️</a></li>
+      <li><a href="aboutus.html">关于我们👋</a></li>
+      <li><a href="en/index.html">English✨</a></li>
+    </ul>
+  </nav>
+  </header>
+
+  <!-- ✅ 餐厅标题 & 图片 -->
+  <div class="restaurant-header">
+    <img src="images/minithai.png" alt="Mini Thai" class="restaurant-logo">
+    <h1>Mini Thai</h1>
+  </div>
+
+  <!-- ✅ 餐厅资讯 -->
+  <div class="info-section">
+    <h3>🍜 推荐餐点与价格</h3>
+
+<div class="menu-grid">
+  <div class="menu-item">
+    <img src="images/chickenrice.jpg" alt="双拼鸡饭" class="menu-photo">
+    <div class="menu-name">双拼鸡饭</div>
+    <div class="menu-price">RM 17.90</div>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/padkrapow.jpg" alt="打抛鸡肉饭" class="menu-photo">
+    <div class="menu-name">打抛鸡肉饭</div>
+    <div class="menu-price">RM 15.90</div>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/greentea.jpg" alt="泰式冰绿奶茶" class="menu-photo">
+    <div class="menu-name">泰式冰绿奶茶</div>
+    <div class="menu-price">RM 8.90</div>
+  </div>
+</div>
+
+
+    <h3>📍 地址</h3>
+    <div class="address">
+      <p>No. 693, EkoCheras Mall, LG-43A, Lower Ground Floor, Batu 5, Jln Cheras, 56000 Cheras, Wilayah Persekutuan Kuala Lumpur</p>
+      <a href="https://maps.app.goo.gl/WwnHMkFoaNNbfTXV8" target="_blank">快来看看它在哪里吧！🗺️</a>
+    </div>
+
+    <h3>🚶 从 MRT Taman Mutiara 出发路线</h3>
+    <div class="route-video-container">
+      <iframe 
+        src="https://drive.google.com/file/d/1VJWDJVtmlTUmstuO08G_QRFH-kzux3Ni/preview"
+        width="100%" 
+        height="400" 
+        allow="autoplay"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+
+    <h3>🕙 营业时间</h3>
+    <div class="hours">
+      每日 10:00 AM – 9:30 PM
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Rapid Food. MRT 美食推荐平台.
+  </footer>
+
+   <script>
+    const video = document.getElementById('routeVideo');
+    const playButton = document.getElementById('playButton');
+
+    // 点击按钮开始播放
+    playButton.addEventListener('click', () => {
+      video.play();
+      playButton.style.display = 'none';
+    });
+
+    // 点击视频切换播放 / 暂停
+    video.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        playButton.style.display = 'none';
+      } else {
+        video.pause();
+        playButton.style.display = 'flex';
+      }
+    });
+
+    // 播放完毕时重新显示按钮
+    video.addEventListener('ended', () => {
+      playButton.style.display = 'flex';
+    });
+  </script>
+</body>
+</html>
