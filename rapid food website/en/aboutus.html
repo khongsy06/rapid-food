@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us👋 - Rapid Food</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: "Microsoft YaHei", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f9ff;
+    }
+
+    /* ✅ Header 样式与首页统一 */
+    header {
+      background-color: #a7d8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+    }
+
+    header img {
+      height: 70px;
+      width: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 18px;
+      transition: opacity 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 0.8;
+    }
+
+    /* ✅ 内容区 */
+    .about-container {
+      max-width: 900px;
+      margin: 60px auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 50px 60px;
+      line-height: 1.8;
+    }
+
+    .about-container h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+      font-size: 32px;
+    }
+
+    .about-container p {
+      color: #444;
+      font-size: 18px;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .about-section {
+      margin-top: 40px;
+    }
+
+    .about-section h2 {
+      color: #333;
+      border-left: 5px solid #a7d8f0;
+      padding-left: 10px;
+      margin-bottom: 10px;
+    }
+
+    /* ✅ Footer 与首页统一 */
+    footer {
+      background-color: #a7d8f0;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 14px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ✅ Header -->
+  <header>
+    <img src="images/logo.png" alt="Rapid Food Logo">
+    <nav>
+      <ul>
+        <li><a href="index.html">Home🏠</a></li>
+        <li><a href="map.html">Food Map🗺️</a></li>
+        <li><a href="aboutus.html">About Us👋</a></li>
+        <li><a href="../index.html">中文</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ✅ 关于我们内容 -->
+  <div class="about-container">
+    <h1>🚄 About Rapid Food</h1>
+
+    <p>
+      <strong>Rapid Food</strong> is a bilingual student-oriented food media platform that helps students find affordable and delicious meals near MRT stations across Kuala Lumpur and Selangor.
+      We focus on meals under RM20 that are within a 5–10 minute walk from the nearest MRT station — making food discovery simple, practical, and budget-friendly for everyday commuters.
+    </p>
+
+    <div class="about-section">
+      <h2>🎯 Mission</h2>
+      <p>To make affordable, local meals more accessible to students and MRT commuters.</p>
+      <p>To connect students through authentic food experiences and real recommendations.</p>
+    </div>
+
+    <div class="about-section">
+      <h2>🌟 Vision</h2>
+      <p>To become Malaysia’s most trusted MRT-based food guide for students.</p>
+      <p>To inspire young people to explore local food culture affordably and conveniently.</p>
+    </div>
+  </div>
+
+  <!-- ✅ Footer -->
+  <footer>
+    © 2025 Rapid Food. MRT Food Recommendation Platform.
+  </footer>
+</body>
+</html>

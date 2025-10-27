@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChopJoy 爽筷 - Rapid Food</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ========== 全局 ========== */
+    body {
+      font-family: "Microsoft YaHei", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f9ff;
+      color: #333;
+    }
+
+    /* ========== Header ========== */
+    header {
+      background-color: #a7d8f0; /* 你要求的浅蓝 */
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-left img {
+      height: 70px;
+      width: auto;
+      display: block;
+    }
+
+    nav {
+      margin-left: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;  /* 移除下划线 */
+      font-weight: 700;       /* 字体加粗 */
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      opacity: 0.85;
+    }
+
+    /* ========== 餐厅标题 ========== */
+    .restaurant-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 28px 0 8px;
+    }
+
+    .restaurant-logo {
+      width: 220px;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .restaurant-header h1 {
+      font-size: 32px;
+      margin: 0 0 6px;
+      color: #222;
+    }
+
+    .info-section {
+      max-width: 940px;
+      margin: 18px auto;
+      padding: 18px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+
+    .info-section h3 {
+      margin-top: 18px;
+      margin-bottom: 12px;
+      font-size: 20px;
+      color: #333;
+      border-left: 6px solid #a7d8f0;
+      padding-left: 12px;
+    }
+
+    /* ========== 推荐餐点（新的样式） ========== */
+    .menu-section {
+      padding: 18px;
+      background: transparent;
+    }
+
+    .menu-title {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .menu-title h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      margin: 0;
+    }
+
+    .menu-underline {
+      height: 6px;
+      width: 160px;
+      border-radius: 6px;
+      background: linear-gradient(to right, #ffb6c1, #ffa3a3);
+    }
+
+    .menu-time {
+      display: block;
+      text-align: center;      /* 水平居中 */
+      background: #fa9e9e;     /* 保留原浅蓝底 */
+      color: #333;
+      padding: 6px 12px;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 15px;
+      width: fit-content;
+      margin: 0 auto 10px;     /* 居中 + 底部留点间距 */
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      justify-items: center;
+      align-items: start;
+    }
+
+    /* 菜卡样式 */
+    .menu-card {
+      width: 260px;
+      background: #a7d8f0;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 18px rgba(222, 150, 183, 0.637);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(14,54,84,0.09);
+    }
+
+    .menu-day {
+      background: #f7a0a0; /* 红色顶部 */
+      color: #fff;
+      text-align: center;
+      padding: 8px 0;
+      font-weight: 700;
+      font-size: 16px;
+      border-top-left-radius: 14px;
+      border-top-right-radius: 14px;
+    }
+
+    .menu-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .menu-info {
+      padding: 10px;
+      background: #c2e8fb;
+      text-align: center;
+    }
+
+    .menu-info .dish-name {
+      font-weight: 700;
+      font-size: 18px;
+      margin: 8px 0 6px;
+      color: #222;
+    }
+
+    .menu-info .price {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    /* ========== 地址、路线、营业时间 ========== */
+    .address p {
+      margin: 6px 0 6px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .address a {
+      color: #1e90ff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .hours {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #444;
+    }
+
+    .stepper {
+      margin-top: 20px;
+      padding-left: 20px;
+      border-left: 3px solid #87CEFA;
+    }
+
+    .step {
+      margin-bottom: 30px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    step::before {
+      content: "";
+      width: 15px;
+      height: 15px;
+      background: #87CEFA;
+      border-radius: 50%;
+      position: absolute;
+      left: -11px;
+      top: 5px;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      color: #fff;
+      background: rgba(0,0,0,0.45);
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    }
+
+    .play-button:hover {
+      background: rgba(0,0,0,0.65);
+    }
+
+    .custom-video-wrapper {
+      margin: 25px 0px 25px 0; /* 上25px，下30px */
+    }
+
+
+    /* ========== Footer ========== */
+    footer {
+      background-color: #a7d8f0;
+      color: white;
+      text-align: center;
+      padding: 18px 12px;
+      margin-top: 28px;
+      font-weight: 600;
+    }
+
+    /* ========== 响应式 ========== */
+    @media (max-width: 980px) {
+      .menu-grid { grid-template-columns: repeat(2, 1fr); }
+      .menu-card { width: 46vw; max-width: 320px; }
+    }
+
+    @media (min-width: 769px) {
+      .menu-grid {
+        grid-template-rows: auto auto;
+        justify-content: center;
+    }
+    }
+
+    @media (max-width: 640px) {
+      header { padding: 12px; }
+      .logo-left img { height: 56px; }
+      nav ul { gap: 14px; }
+      .menu-grid { grid-template-columns: 1fr; gap: 14px; }
+      .menu-card { width: 92%; }
+      .restaurant-header { margin-top: 16px; }
+    }
+
+    /* 为确保第二行 2 项居中显示（在大屏时） */
+    /* 已使用 grid-template-columns repeat(3,1fr) -> 放置 5 项时自然第一行 3，第二行2且居中 */
+  </style>
+</head>
+<body>
+
+  <!-- Header（保持与你其他页一致） -->
+  <header>
+    <div class="logo-left">
+      <img src="images/logo.png" alt="Rapid Food Logo">
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">首页🏠</a></li>
+        <li><a href="map.html">美食地图🗺️</a></li>
+        <li><a href="aboutus.html">关于我们👋</a></li>
+        <li><a href="en/index.html">English✨</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 餐厅标题 & logo -->
+  <div class="restaurant-header">
+    <img src="images/chopjoy.jpg" alt="ChopJoy" class="restaurant-logo">
+    <h1>ChopJoy 爽筷</h1>
+  </div>
+
+  <!-- info section（保留你的 info-section 容器） -->
+  <div class="info-section">
+    <!-- 推荐菜标题 -->
+    <div class="menu-section">
+     <h3>🍜 推荐餐点与价格</h3>
+
+      <div class="menu-time">2pm - 5pm</div>
+
+      <!-- 菜单网格：放 5 个卡片，grid 三列，第一行 3，第二行 2（居中） -->
+      <div class="menu-grid" aria-label="每日特惠菜单">
+        <!-- Monday -->
+        <div class="menu-card">
+          <div class="menu-day">MONDAY</div>
+          <img src="images/chopjoy_monday.png" alt="葱香拌面">
+          <div class="menu-info">
+            <div class="dish-name">葱香拌面</div>
+            <div class="price">Ala Carte RM9.90<br>Combo Set RM15.90</div>
+          </div>
+        </div>
+
+        <!-- Tuesday -->
+        <div class="menu-card">
+          <div class="menu-day">TUESDAY</div>
+          <img src="images/chopjoy_tuesday.png" alt="招牌担担面">
+          <div class="menu-info">
+            <div class="dish-name">招牌担担面</div>
+            <div class="price">Ala Carte RM9.90<br>Combo Set RM16.90</div>
+          </div>
+        </div>
+
+        <!-- Wednesday -->
+        <div class="menu-card">
+          <div class="menu-day">WEDNESDAY</div>
+          <img src="images/chopjoy_wednesday.png" alt="番茄鸡蛋面">
+          <div class="menu-info">
+            <div class="dish-name">番茄鸡蛋面</div>
+            <div class="price">Ala Carte RM9.90<br>Combo Set RM15.90</div>
+          </div>
+        </div>
+
+        <!-- Thursday -->
+        <div class="menu-card">
+          <div class="menu-day">THURSDAY</div>
+          <img src="images/chopjoy_thursday.png" alt="芽菜猪肉蛋炒饭">
+          <div class="menu-info">
+            <div class="dish-name">芽菜猪肉蛋炒饭</div>
+            <div class="price">Ala Carte RM9.90<br>Combo Set RM15.90</div>
+          </div>
+        </div>
+
+        <!-- Friday -->
+        <div class="menu-card">
+          <div class="menu-day">FRIDAY</div>
+          <img src="images/chopjoy_friday.png" alt="香辣猪肉碎炒饭">
+          <div class="menu-info">
+            <div class="dish-name">香辣猪肉碎炒饭</div>
+            <div class="price">Ala Carte RM9.90<br>Combo Set RM16.90</div>
+          </div>
+        </div>
+      </div> <!-- .menu-grid end -->
+    </div> <!-- .menu-section end -->
+
+    <!-- 地址 -->
+    <h3>📍 地址</h3>
+    <div class="address">
+      <p>Lot 3-28, 3rd Floor, Sunway Velocity Mall Lingkaran SV, Jln Cheras, Maluri, 55100 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</p>
+      <p><a href="https://maps.app.goo.gl/Dd9Ayqyidi4MsDQf8" target="_blank" rel="noopener">快来看看它在哪里吧！🗺️</a></p>
+    </div>
+
+    <!-- 路线视频 -->
+    <h3>🚶 从 MRT Maluri 出发路线</h3>
+    <div class="route-video-container">
+      <iframe 
+        src="https://drive.google.com/file/d/1Kk7LBnPztIjOGklHZg2HmWebUoR9-EvT/preview"
+        width="100%" 
+        height="400" 
+        allow="autoplay"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+
+    <!-- 营业时间 -->
+    <h3>🕙 营业时间</h3>
+    <div class="hours">每日 10:00 AM – 10:00 PM</div>
+  </div> <!-- .info-section end -->
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Rapid Food. MRT 美食推荐平台.
+  </footer>
+
+  <!-- ========== JS：视频播放/暂停 ========== -->
+  <script>
+    (function() {
+      const video = document.getElementById('routeVideo');
+      const playButton = document.getElementById('playButton');
+
+      if (!video || !playButton) return;
+
+      // 点击播放按钮播放并隐藏按钮
+      playButton.addEventListener('click', () => {
+        video.play();
+        playButton.style.display = 'none';
+      });
+
+      // 点击视频切换播放/暂停并控制按钮显示
+      video.addEventListener('click', () => {
+        if (video.paused) {
+          video.play();
+          playButton.style.display = 'none';
+        } else {
+          video.pause();
+          playButton.style.display = 'flex';
+        }
+      });
+
+      // 视频暂停时显示按钮
+      video.addEventListener('pause', () => {
+        playButton.style.display = 'flex';
+      });
+
+      // 视频播放时隐藏按钮（当通过其他方式播放）
+      video.addEventListener('play', () => {
+        playButton.style.display = 'none';
+      });
+
+      // 播放完毕显示按钮
+      video.addEventListener('ended', () => {
+        playButton.style.display = 'flex';
+      });
+    })();
+  </script>
+</body>
+</html>
