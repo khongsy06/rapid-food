@@ -221,79 +221,28 @@
       color: #444;
     }
 
-    /* ====== 路线区块（左右结构） ====== */
-    .route-section {
-      display: flex;
-      flex-direction: row;       /* ✅ 默认左右排列 */
-      align-items: flex-start;
-      justify-content: center;
-      gap: 40px;
-      margin-top: 16px;
-    }
-
-    .video-box {
-      flex: 1;
-      max-width: 300px;
-      min-width: 260px;
-      position: relative; /* 为了让播放按钮居中 */
-    }
-
-    .video-box video {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      display: block;
-    }
-
-    /* ✅ 路线步骤设计版（简洁连线 + 圆点） */
     .stepper {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      padding-left: 30px;
-      border-left: 4px solid #87CEFA;
-      position: relative;
+      margin-top: 20px;
+      padding-left: 20px;
+      border-left: 3px solid #87CEFA;
     }
 
     .step {
+      margin-bottom: 30px;
       position: relative;
-      background: #f9fcff;
-      padding: 15px 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(135, 206, 250, 0.2);
-      transition: all 0.3s ease;
-      font-size: 17px;
-      color: #333;
+      padding-left: 20px;
     }
 
-    /* 左边蓝点 */
-    .step::before {
+    step::before {
       content: "";
-      position: absolute;
-      left: -12px;
-      top: 20px;
       width: 15px;
       height: 15px;
-      background-color: #87CEFA;
+      background: #87CEFA;
       border-radius: 50%;
-      border: 2px solid white;
-      box-shadow: 0 0 0 2px #87CEFA;
+      position: absolute;
+      left: -11px;
+      top: 5px;
     }
-
-    /* Hover 效果 */
-    .step:hover {
-      background: #e8f7ff;
-      transform: translateX(5px);
-      box-shadow: 0 4px 12px rgba(135, 206, 250, 0.3);
-    }
-
-    /* 手机改上下排列 */
-    @media (max-width: 768px) {
-    .route-section {
-      flex-direction: column;
-      gap: 24px;
-    }
-  }
 
     .play-button {
       position: absolute;
@@ -315,6 +264,10 @@
 
     .play-button:hover {
       background: rgba(0,0,0,0.65);
+    }
+
+    .custom-video-wrapper {
+      margin: 25px 0px 25px 0; /* 上25px，下30px */
     }
 
 
@@ -364,10 +317,10 @@
 
     <nav>
       <ul>
-        <li><a href="index.html">Home🏠</a></li>
-        <li><a href="map.html">Food Map🗺️</a></li>
-        <li><a href="aboutus.html">About Us👋</a></li>
-        <li><a href="../index.html">中文</a></li>
+        <li><a href="index.html">首页🏠</a></li>
+        <li><a href="map.html">美食地图🗺️</a></li>
+        <li><a href="aboutus.html">关于我们👋</a></li>
+        <li><a href="en/index.html">English✨</a></li>
       </ul>
     </nav>
   </header>
@@ -375,14 +328,14 @@
   <!-- 餐厅标题 & logo -->
   <div class="restaurant-header">
     <img src="images/chopjoy.jpg" alt="ChopJoy" class="restaurant-logo">
-    <h1>ChopJoy </h1>
+    <h1>ChopJoy 爽筷</h1>
   </div>
 
   <!-- info section（保留你的 info-section 容器） -->
   <div class="info-section">
     <!-- 推荐菜标题 -->
     <div class="menu-section">
-     <h3>🍜 Recommended dishes and prices</h3>
+     <h3>🍜 推荐餐点与价格</h3>
 
       <div class="menu-time">2pm - 5pm</div>
 
@@ -393,7 +346,7 @@
           <div class="menu-day">MONDAY</div>
           <img src="images/chopjoy_monday.png" alt="葱香拌面">
           <div class="menu-info">
-            <div class="dish-name">Aromatic Scallion Noodles</div>
+            <div class="dish-name">葱香拌面</div>
             <div class="price">Ala Carte RM9.90<br>Combo Set RM15.90</div>
           </div>
         </div>
@@ -403,7 +356,7 @@
           <div class="menu-day">TUESDAY</div>
           <img src="images/chopjoy_tuesday.png" alt="招牌担担面">
           <div class="menu-info">
-            <div class="dish-name">Signature Dan Dan Noodles</div>
+            <div class="dish-name">招牌担担面</div>
             <div class="price">Ala Carte RM9.90<br>Combo Set RM16.90</div>
           </div>
         </div>
@@ -413,7 +366,7 @@
           <div class="menu-day">WEDNESDAY</div>
           <img src="images/chopjoy_wednesday.png" alt="番茄鸡蛋面">
           <div class="menu-info">
-            <div class="dish-name">Tomato Noodles with Fried Egg</div>
+            <div class="dish-name">番茄鸡蛋面</div>
             <div class="price">Ala Carte RM9.90<br>Combo Set RM15.90</div>
           </div>
         </div>
@@ -423,7 +376,7 @@
           <div class="menu-day">THURSDAY</div>
           <img src="images/chopjoy_thursday.png" alt="芽菜猪肉蛋炒饭">
           <div class="menu-info">
-            <div class="dish-name">Pickled Mustard Pork Egg Fried Rice</div>
+            <div class="dish-name">芽菜猪肉蛋炒饭</div>
             <div class="price">Ala Carte RM9.90<br>Combo Set RM15.90</div>
           </div>
         </div>
@@ -433,7 +386,7 @@
           <div class="menu-day">FRIDAY</div>
           <img src="images/chopjoy_friday.png" alt="香辣猪肉碎炒饭">
           <div class="menu-info">
-            <div class="dish-name">Spicy Minced Pork Fried Rice</div>
+            <div class="dish-name">香辣猪肉碎炒饭</div>
             <div class="price">Ala Carte RM9.90<br>Combo Set RM16.90</div>
           </div>
         </div>
@@ -441,13 +394,14 @@
     </div> <!-- .menu-section end -->
 
     <!-- 地址 -->
-    <h3>📍 Address</h3>
+    <h3>📍 地址</h3>
     <div class="address">
       <p>Lot 3-28, 3rd Floor, Sunway Velocity Mall Lingkaran SV, Jln Cheras, Maluri, 55100 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</p>
-      <p><a href="https://maps.app.goo.gl/Dd9Ayqyidi4MsDQf8" target="_blank" rel="noopener">Let’s see where it is!🗺️</a></p>
+      <p><a href="https://maps.app.goo.gl/Dd9Ayqyidi4MsDQf8" target="_blank" rel="noopener">快来看看它在哪里吧！🗺️</a></p>
     </div>
 
-    <h3>🚶 How to Get There from MRT Maluri</h3>
+    <!-- 路线视频 -->
+    <h3>🚶 从 MRT Maluri 出发路线</h3>
     <div class="route-video-container">
       <iframe 
         src="https://drive.google.com/file/d/1Kk7LBnPztIjOGklHZg2HmWebUoR9-EvT/preview"
@@ -458,26 +412,15 @@
       </iframe>
     </div>
 
-    <div class="stepper">
-     <div class="step"> Upon arriving at Maluri Station, head straight from Exit B.</div>
-     <div class="step"> Continue straight ahead until you see this brand, then take the elevator.</div>
-     <div class="step"> After exiting the elevator, continue straight toward the mall.</div>
-     <div class="step"> Enter through the main door, then turn left and take the elevator to the third floor.</div>
-     <div class="step"> When you get off the elevator, turn left and go straight.</div>
-     <div class="step"> Then, turn right and continue straight.</div>
-     <div class="step"> Finally, turn left and proceed straight ahead; your destination will be on your left/right.</div>
-     <div class="step"> You have arrived.🎉</div>
-    </div>
-  </div>
 
     <!-- 营业时间 -->
-    <h3>🕙 Business Hours</h3>
-    <div class="hours">Everyday 10:00 AM – 10:00 PM</div>
+    <h3>🕙 营业时间</h3>
+    <div class="hours">每日 10:00 AM – 10:00 PM</div>
   </div> <!-- .info-section end -->
 
   <!-- Footer -->
   <footer>
-    © 2025 Rapid Food. MRT Food Recommendation Platform.
+    © 2025 Rapid Food. MRT 美食推荐平台.
   </footer>
 
   <!-- ========== JS：视频播放/暂停 ========== -->

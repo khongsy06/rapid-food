@@ -90,88 +90,34 @@
       font-size: 18px;
     }
 
-    .menu-name {
-      text-align: center;
-    }
-
     .address a {
       color: #1e90ff;
       text-decoration: none;
     }
 
-     /* ====== 路线区块（左右结构） ====== */
-    .route-section {
-      display: flex;
-      flex-direction: row;       /* ✅ 默认左右排列 */
-      align-items: flex-start;
-      justify-content: center;
-      gap: 40px;
-      margin-top: 16px;
-    }
-
-    .video-box {
-      flex: 1;
-      max-width: 300px;
-      min-width: 260px;
-      position: relative; /* 为了让播放按钮居中 */
-    }
-
-    .video-box video {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      display: block;
-    }
-
-    /* ✅ 路线步骤设计版（简洁连线 + 圆点） */
+    /* Stepper 样式 */
     .stepper {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      padding-left: 30px;
-      border-left: 4px solid #87CEFA;
-      position: relative;
+      margin-top: 20px;
+      padding-left: 20px;
+      border-left: 3px solid #87CEFA;
     }
 
     .step {
+      margin-bottom: 30px;
       position: relative;
-      background: #f9fcff;
-      padding: 15px 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(135, 206, 250, 0.2);
-      transition: all 0.3s ease;
-      font-size: 17px;
-      color: #333;
+      padding-left: 20px;
     }
 
-    /* 左边蓝点 */
     .step::before {
       content: "";
-      position: absolute;
-      left: -12px;
-      top: 20px;
       width: 15px;
       height: 15px;
-      background-color: #87CEFA;
+      background: #87CEFA;
       border-radius: 50%;
-      border: 2px solid white;
-      box-shadow: 0 0 0 2px #87CEFA;
+      position: absolute;
+      left: -11px;
+      top: 5px;
     }
-
-    /* Hover 效果 */
-    .step:hover {
-      background: #e8f7ff;
-      transform: translateX(5px);
-      box-shadow: 0 4px 12px rgba(135, 206, 250, 0.3);
-    }
-
-    /* 手机改上下排列 */
-    @media (max-width: 768px) {
-    .route-section {
-      flex-direction: column;
-      gap: 24px;
-    }
-  }
 
        .play-button {
       position: absolute;
@@ -208,10 +154,10 @@
   <img src="images/logo.png" alt="Rapid Food Logo">
   <nav>
     <ul>
-      <li><a href="index.html">Home🏠</a></li>
-      <li><a href="map.html">Food Map🗺️</a></li>
-      <li><a href="aboutus.html">About Us👋</a></li>
-      <li><a href="../index.html">中文</a></li>
+      <li><a href="index.html">首页🏠</a></li>
+      <li><a href="map.html">美食地图🗺️</a></li>
+      <li><a href="aboutus.html">关于我们👋</a></li>
+      <li><a href="en/index.html">English✨</a></li>
     </ul>
   </nav>
   </header>
@@ -224,36 +170,36 @@
 
   <!-- ✅ 餐厅资讯 -->
   <div class="info-section">
-    <h3>🍜 Recommended dishes and prices</h3>
+    <h3>🍜 推荐餐点与价格</h3>
 
 <div class="menu-grid">
   <div class="menu-item">
     <img src="images/chickenrice.jpg" alt="双拼鸡饭" class="menu-photo">
-    <div class="menu-name">Mix Chicken Rice</div>
+    <div class="menu-name">双拼鸡饭</div>
     <div class="menu-price">RM 17.90</div>
   </div>
 
   <div class="menu-item">
     <img src="images/padkrapow.jpg" alt="打抛鸡肉饭" class="menu-photo">
-    <div class="menu-name">Pad Krapow Chicken with Rice</div>
+    <div class="menu-name">打抛鸡肉饭</div>
     <div class="menu-price">RM 15.90</div>
   </div>
 
   <div class="menu-item">
     <img src="images/greentea.jpg" alt="泰式冰绿奶茶" class="menu-photo">
-    <div class="menu-name">Thai Green Tea（Cold）</div>
+    <div class="menu-name">泰式冰绿奶茶</div>
     <div class="menu-price">RM 8.90</div>
   </div>
 </div>
 
 
-    <h3>📍 Address</h3>
+    <h3>📍 地址</h3>
     <div class="address">
       <p>No. 693, EkoCheras Mall, LG-43A, Lower Ground Floor, Batu 5, Jln Cheras, 56000 Cheras, Wilayah Persekutuan Kuala Lumpur</p>
-      <a href="https://maps.app.goo.gl/WwnHMkFoaNNbfTXV8" target="_blank">Let’s see where it is!🗺️</a>
+      <a href="https://maps.app.goo.gl/WwnHMkFoaNNbfTXV8" target="_blank">快来看看它在哪里吧！🗺️</a>
     </div>
 
-    <h3>🚶 How to Get There from MRT Taman Mutiara</h3>
+    <h3>🚶 从 MRT Taman Mutiara 出发路线</h3>
     <div class="route-video-container">
       <iframe 
         src="https://drive.google.com/file/d/1VJWDJVtmlTUmstuO08G_QRFH-kzux3Ni/preview"
@@ -264,26 +210,15 @@
       </iframe>
     </div>
 
-    <div class="stepper">
-     <div class="step"> Arrive at Mutiara Station.Turn right and go straight.</div>
-     <div class="step"> Once you see this sign, turn right (heading towards Eko Cheras Mall).</div>
-     <div class="step"> Go straight.When you see this doorway, enter through it.</div>
-     <div class="step"> Once inside, continue straight ahead.At this intersection, turn right and go straight.</div>
-     <div class="step"> When you see the L1 elevator, turn left and take it down.After getting off, turn left and go down one more floor.</div>
-     <div class="step"> When you exit, turn left and continue straight.After you pass this store (Caring), turn right.</div>
-     <div class="step"> Go straight for a short distance.It will be on your left.</div>
-     <div class="step"> You have arrived.🎉</div>
-    </div>
-  </div>
 
-    <h3>🕙 Business Hours</h3>
+    <h3>🕙 营业时间</h3>
     <div class="hours">
-      Everyday 10:00 AM – 9:30 PM
+      每日 10:00 AM – 9:30 PM
     </div>
   </div>
 
   <footer>
-    © 2025 Rapid Food. MRT Food Recommendation Platform.
+    © 2025 Rapid Food. MRT 美食推荐平台.
   </footer>
 
    <script>
