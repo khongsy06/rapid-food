@@ -90,6 +90,10 @@
       font-size: 18px;
     }
 
+    .menu-name {
+      text-align: center;
+    }
+
     .menu-time {
       display: block;
       text-align: center;      /* 水平居中 */
@@ -108,31 +112,81 @@
       text-decoration: none;
     }
 
-    /* Stepper 样式 */
+    /* ====== 路线区块（左右结构） ====== */
+    .route-section {
+      display: flex;
+      flex-direction: row;       /* ✅ 默认左右排列 */
+      align-items: flex-start;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 16px;
+    }
+
+    .video-box {
+      flex: 1;
+      max-width: 300px;
+      min-width: 260px;
+      position: relative; /* 为了让播放按钮居中 */
+    }
+
+    .video-box video {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      display: block;
+    }
+
+    /* ✅ 路线步骤设计版（简洁连线 + 圆点） */
     .stepper {
-      margin-top: 20px;
-      padding-left: 20px;
-      border-left: 3px solid #87CEFA;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-left: 30px;
+      border-left: 4px solid #87CEFA;
+      position: relative;
     }
 
     .step {
-      margin-bottom: 30px;
       position: relative;
-      padding-left: 20px;
+      background: #f9fcff;
+      padding: 15px 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(135, 206, 250, 0.2);
+      transition: all 0.3s ease;
+      font-size: 17px;
+      color: #333;
     }
 
+    /* 左边蓝点 */
     .step::before {
       content: "";
+      position: absolute;
+      left: -12px;
+      top: 20px;
       width: 15px;
       height: 15px;
-      background: #87CEFA;
+      background-color: #87CEFA;
       border-radius: 50%;
-      position: absolute;
-      left: -11px;
-      top: 5px;
+      border: 2px solid white;
+      box-shadow: 0 0 0 2px #87CEFA;
     }
 
-       .play-button {
+    /* Hover 效果 */
+    .step:hover {
+      background: #e8f7ff;
+      transform: translateX(5px);
+      box-shadow: 0 4px 12px rgba(135, 206, 250, 0.3);
+    }
+
+    /* 手机改上下排列 */
+    @media (max-width: 768px) {
+    .route-section {
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+
+   .play-button {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -140,8 +194,8 @@
       font-size: 30px;
       color: rgb(254, 193, 193);
       background: rgba(0, 0, 0, 0.5);
-      width: 30px; /* 🔹 圆圈的宽度 */
-      height: 30px; /* 🔹 圆圈的高度 */
+      width: 15px; /* 🔹 圆圈的宽度 */
+      height: 15px; /* 🔹 圆圈的高度 */
       border-radius: 50%;
       padding: 20px;
       cursor: pointer;
@@ -167,10 +221,10 @@
   <img src="images/logo.png" alt="Rapid Food Logo">
   <nav>
     <ul>
-      <li><a href="index.html">首页🏠</a></li>
-      <li><a href="map.html">美食地图🗺️</a></li>
-      <li><a href="aboutus.html">关于我们👋</a></li>
-      <li><a href="en/index.html">English✨</a></li>
+      <li><a href="index.html">Home🏠</a></li>
+      <li><a href="map.html">Food Map🗺️</a></li>
+      <li><a href="aboutus.html">About Us👋</a></li>
+      <li><a href="../index.html">中文</a></li>
     </ul>
   </nav>
   </header>
@@ -183,39 +237,38 @@
 
   <!-- ✅ 餐厅资讯 -->
   <div class="info-section">
-    <h3>🍜 推荐餐点与价格</h3>
+    <h3>🍜 Recommended dishes and prices</h3>
 
-    <div class="menu-time">11：30am - 2：30pm（套餐）</div>
+    <div class="menu-time">11：30am - 2：30pm（Set meal）</div>
 
 <div class="menu-grid">
   <div class="menu-item">
     <img src="images/setlunch.png" alt="套餐" class="menu-photo">
-    <div class="menu-name">午餐肉蛋盖饭</div>
-    <div class="menu-name">+中国茶+水果</div>
+    <div class="menu-name">Luncheon Meat Rice Bowl+Tea+Fruit</div>
     <div class="menu-price">RM 12.90</div>
   </div>
 
   <div class="menu-item">
     <img src="images/buttermilk.png" alt="奶油鸡丁饭" class="menu-photo">
-    <div class="menu-name">奶油鸡丁饭</div>
+    <div class="menu-name">Buttermilk Chicken Rice</div>
     <div class="menu-price">RM 14.90</div>
   </div>
 
   <div class="menu-item">
     <img src="images/tea.jpg" alt="人参茶" class="menu-photo">
-    <div class="menu-name">人参茶</div>
+    <div class="menu-name">Herbal Tea</div>
     <div class="menu-price">RM 5.50</div>
   </div>
 </div>
 
 
-    <h3>📍 地址</h3>
+    <h3>📍 Address</h3>
     <div class="address">
       <p>25m, Jalan 2/90, Taman Pertama, 56100 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</p>
-      <a href="https://maps.app.goo.gl/GXLwtSxtmxVsB8pF8" target="_blank">快来看看它在哪里吧！🗺️</a>
+      <a href="https://maps.app.goo.gl/GXLwtSxtmxVsB8pF8" target="_blank">Let’s see where it is!🗺️</a>
     </div>
 
-    <h3>🚶 从 MRT Taman Pertama 出发路线</h3>
+    <h3>🚶 How to Get There from MRT Taman Pertama</h3>
     <div class="route-video-container">
       <iframe 
         src="https://drive.google.com/file/d/1Kf9TbJV_4BP9tAvF4yiDBLD2UQIEg6mN/preview" 
@@ -226,14 +279,23 @@
       </iframe>
     </div>
 
-    <h3>🕙 营业时间</h3>
+  
+    <div class="stepper">
+     <div class="step"> Once you reach Taman Pertama and go straight to the right.</div>
+     <div class="step"> You can see this cafe.</div>
+     <div class="step"> Just climb one flight of stairs and you'll arrive.</div>
+     <div class="step"> You have arrived.🎉</div>
+    </div>
+  </div>
+
+    <h3>🕙 Business Hours</h3>
     <div class="hours">
-      每个礼拜 8:30 AM – 6:00 PM （周二休息）
+      Every Week 8:30 AM – 6:00 PM （Closed on Tuesday）
     </div>
   </div>
 
   <footer>
-    © 2025 Rapid Food. MRT 美食推荐平台.
+    © 2025 Rapid Food. MRT Food Recommendation Platform.
   </footer>
 
    <script>
