@@ -1,0 +1,439 @@
+/* === 页首 Header === */
+header {
+  background-color: #a7d8f0; /* 浅蓝色 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px; /* ✅ 调大左右留白，右边就有空隙 */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo 区域 */
+header img {
+  height: 80px; /* ✅ logo 变大 */
+  width: auto;
+}
+
+/* 导航栏 */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+}
+
+/* 导航文字 */
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+/* hover 效果：浅红色元素 */
+nav a:hover {
+  color: #f88fa6;
+  border-bottom: 2px solid #f88fa6;
+}
+
+/* === Banner Section（长方形版本）=== */
+.banner {
+  position: relative;
+  width: 100%;
+  background-color: #f8aeb8; /* 浅粉红 */
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 限制横幅整体大小为长方形 */
+.banner-content {
+  position: relative;
+  width: 90%;
+  max-width: 1100px;
+  height: 350px; /* 控制为长方形 */
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* MRT 图片保持完整比例填充 */
+.banner-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 关键：让图片铺满长方形但不变形 */
+  display: block;
+  border-radius: 12px;
+  opacity: 0.95;
+}
+
+/* 文字置中叠在图片上 */
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(167, 216, 240, 0.85); /* 半透明浅蓝 */
+  padding: 25px 40px;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+  max-width: 80%;
+}
+
+.banner-text h1 {
+  font-size: 1.6em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.banner-text p {
+  font-size: 1em;
+  margin: 0;
+}
+
+/* ===== 按钮样式 ===== */
+.btn {
+  display: inline-block;
+  background-color: #f9b8b8; /* ✅ 浅红色按钮 */
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #f7a0a0;
+}
+
+/* ===== 标题与分隔线 ===== */
+h2, h3 {
+  text-align: center;
+  color: #333;
+  font-weight: bold;
+  margin-top: 30px;
+  position: relative;
+}
+
+/* 分隔线 */
+.section-divider {
+  width: 80%;
+  height: 2px;
+  background-color: #f9b8b8;
+  margin: 50px auto;
+  border-radius: 2px;
+}
+
+/* ===== 内容区块 ===== */
+section {
+  padding: 40px 60px;
+}
+
+/* 卡片样式（餐厅、美食信息等） */
+.card {
+  background-color: white;
+  border: 2px solid #a7d8f0;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+  padding: 10px;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  border-color: #f9b8b8;
+}
+
+/* 餐厅页面卡片内文字排版 */
+.restaurant-card h3,
+.restaurant-card p {
+  text-align: center; /* ✅ 改成左对齐 */
+  margin-left: 15px; /* ✅ 加一点左边留白，看起来更整齐 */
+}
+
+/* ===== 页脚 Footer ===== */
+footer {
+  background-color: #a7d8f0;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  border-top: 4px solid #f9b8b8; /* ✅ 浅红装饰线 */
+}
+
+.info-section h3 {
+  position: relative;
+  display: inline-block;       /* 让宽度随文字变化 */
+  font-size: 22px;
+  color: #333;
+  padding-bottom: 8px;         /* 给下划线留空间 */
+}
+
+.info-section h3::after {
+  content: "";
+  position: absolute;
+  left: -5px;                  /* ✅ 左边多出一点 */
+  right: -20px;                 /* ✅ 右边多出一点 */
+  bottom: 0;                   /* 下划线在文字底部 */
+  height: 3px;                 /* 下划线粗细 */
+  background-color: #f8b6b8;   /* ✅ 浅红色 */
+  border-radius: 2px;          /* 稍微圆角 */
+}
+
+/* ============================
+   ✅ 餐厅标题区（居中）
+============================ */
+.restaurant-header h1 {
+  text-align: center;
+  font-size: 34px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: #333;
+  position: relative;
+}
+
+/* ============================
+   ✅ 内容区 h3 样式（全部左对齐 + 统一间距）
+============================ */
+.info-section h3 {
+  text-align: left;
+  font-size: 22px;
+  color: #333;
+  margin-top: 35px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  border-left: 5px solid #a7d8f0; /* 浅蓝竖线 */
+  position: relative;
+  display: inline-block; /* ✅ 让红线固定宽度 */
+}
+
+.info-section h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 150px;              /* ✅ 固定长度（你可调成100~150px）*/
+  height: 2px;
+  background-color: #f4a7a0; /* 浅红线 */
+}
+
+/* 统一标题与下方文字距离 */
+.info-section h3 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.info-section h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 120%; /* 👈 横线长度：越大越长 */
+  height: 3px;
+  background-color: #f5a3a3;
+}
+
+/* 菜单项目保持对齐 */
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  font-size: 18px;
+}
+
+/* 统一 footer 样式 */
+footer {
+  background-color: #a7d8f0;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
+  font-size: 16px;
+}
+
+.route-video-container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.custom-video-wrapper {
+  position: relative;
+  width: 40%;
+  max-width: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.custom-video-wrapper video {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+}
+
+/* 自定义播放按钮 */
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: white;
+  background-color: rgba(248, 182, 182, 0.8); /* 浅红 */
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.play-button:hover {
+  background-color: rgba(255, 140, 140, 0.9);
+}
+
+.menu-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* 🔹 每个餐点之间的间距 */
+  flex-wrap: wrap; /* ✅ 窄屏幕时自动换行 */
+  margin-top: 20px;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #e3edfff3;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(255, 183, 183, 0.758);
+  width: 220px;
+  transition: transform 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+}
+
+.menu-photo {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.menu-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.menu-price {
+  font-size: 16px;
+  color: #666;
+}
+
+.restaurant-card {
+  width: 320px;               /* 🔹 调整整体大小 */
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s;
+  margin: 20px auto;          /* 🔹 居中 */
+}
+
+.restaurant-card:hover {
+  transform: translateY(-5px);
+}
+
+.restaurant-card img {
+  width: 200%;
+  height: 300px;              /* 🔹 稍微放大图片 */
+  object-fit: contain;        /* 🔹 保持完整显示 */
+  background-color: #ffffff;  /* 🔹 白底 */
+  padding: 10px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.restaurant-card h3 {
+  margin: 15px 0 5px;
+  font-size: 22px;
+  color: #333;
+}
+
+.restaurant-card a {
+  display: inline-block;
+  margin-bottom: 20px;
+  background-color: #7ec8f3;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.restaurant-card a:hover {
+  background-color: #5bb8e8;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card-link {
+  text-decoration: none; /* ✅ 去掉下划线 */
+  color: inherit; /* ✅ 保持文字颜色不变 */
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 1.3em;
+  margin: 15px 0 5px;
+}
+
+.card p {
+  color: #555;
+  margin-bottom: 15px;
+}
+

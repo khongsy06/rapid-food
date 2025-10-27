@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pasar Seni 站点 - Rapid Food</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: "Microsoft YaHei", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #e0f2ff;
+    }
+
+    header {
+      background-color: #a7d8f0;
+      padding: 15px 20px;
+      text-align: center;
+    }
+
+    header img {
+      max-height: 70px;
+      display: block;
+      margin: 0 auto px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;   /* 去掉下划线 */
+      color: #ffffff;          /* 白色字体 */
+      font-size: 18px;
+      font-weight: bold;       /* 加粗 */
+      transition: opacity 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 0.8;            /* hover 时半透明 */
+    }
+
+    .station-header {
+      text-align: center;
+      color: #004080;
+      margin: 30px 0 10px;
+    }
+
+    .station-header h2 {
+      font-size: 32px;
+      margin: 0;
+    }
+
+    .recommend-header {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 30px 0 15px;
+      color: #004080;
+    }
+
+    .restaurant-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto 50px;
+      padding: 0 20px;
+    }
+
+    .restaurant-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .restaurant-card:hover {
+      transform: scale(1.05);
+    }
+
+    .restaurant-card img {
+     width: 100%;
+     height: 250px;              /* 🔹 控制卡片图片区域高度 */
+     object-fit: cover;        /* ✅ 保证完整显示图片 */
+     object-position: center;    /* ✅ 居中显示 */
+     background-color: white;    /* ✅ 白色背景更干净 */
+     display: block;
+     margin: 0 auto;
+     padding: 0px 0;
+    }
+
+    .restaurant-card h3 {
+      background-color: #f0f8ff;
+      padding: 10px;
+      font-size: 20px;
+      margin: 0;
+    }
+    .restaurant-card a {
+      display: inline-block;
+      margin: 15px auto 20px;
+      padding: 8px 16px;
+      background-color: #87cefa;
+      color: white;
+      text-decoration: none;
+      border-radius: 20px;
+      font-size: 14px;
+      transition: background-color 0.2s ease;
+    }
+
+    .restaurant-card a:hover {
+      background-color: #f7a0a0;
+    }
+
+    footer {
+      background-color: #a7d8f0;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+  <img src="images/logo.png" alt="Rapid Food Logo">
+  <nav>
+    <ul>
+      <li><a href="index.html">Home🏠</a></li>
+      <li><a href="map.html">Food Map🗺️</a></li>
+      <li><a href="aboutus.html">About Us👋</a></li>
+      <li><a href="../index.html">中文</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <div class="station-header">
+    <h2>Taman Pertama Station</h2>
+  </div>
+
+  <div class="recommend-header">🍽️ Recommended Restaurants 🍽️</div>
+
+  <div class="restaurant-grid">
+    <div class="restaurant-card">
+      <img src="images/06cafe.jpg" alt="餐厅1">
+      <h3>06 CAFE</h3>
+      <a href="06cafe.html">Come check it out!</a>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Rapid Food. MRT Food Recommendation Platform.
+  </footer>
+</body>
+</html>
